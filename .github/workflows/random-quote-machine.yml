@@ -17,14 +17,14 @@ jobs:
                 node-version: '20'        
             - name: Install dependencies
               run:  | 
-                cd ../../random-quote-machine
+                cd ./random-quote-machine
                 npm install
             - name: Check style
               run: | 
-                cd ../../random-quote-machine
+                cd ./random-quote-machine
                 npm run lint
             - name: Test
               run: |
-                cd ../../random-quote-machine
+                cd ./random-quote-machine
                 npm run test
         
