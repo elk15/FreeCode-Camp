@@ -5,17 +5,19 @@ import { Quote } from '../types'
 
 interface Props {
   quote: Quote
+  handleClick: () => void
+  color: string
 }
 
-const CardComponent = ({ quote }: Props) => {
+const CardComponent = ({ quote, handleClick, color }: Props) => {
   return (
     <Card>
-      <QuoteComponent>
+      <QuoteComponent $color={color}>
         <FontAwesomeIcon icon={faQuoteLeft} style={{ marginRight: '10px' }} />
         {quote.quote}
       </QuoteComponent>
-      <Attribution>- {quote.attribution}</Attribution>
-      <CardButton>New quote</CardButton>
+      <Attribution $color={color}>- {quote.attribution}</Attribution>
+      <CardButton onClick={handleClick} $backgroundColor={color}>New quote</CardButton>
     </Card>
   )
 }

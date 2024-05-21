@@ -6,12 +6,19 @@ import { Quote } from './types.ts'
 import { useState } from 'react'
 
 function App() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [quoteIndex, setQuoteIndex] = useState<number>(0)
+  const [colorIndex, setColorIndex] = useState<number>(0)
   const quoteArr: Quote[] = quotes
+  const colors = ['#8338EC', '#FB5607', '#3A86FF', '#FFBE0B', '#FF006E']
+
+  const onNewQuote = () => {
+    setQuoteIndex((quoteIndex + 1) % quoteArr.length)
+    setColorIndex((colorIndex + 1) % colors.length)
+  }
+
   return (
-    <Main>
-      <CardComponent quote={quoteArr[quoteIndex]}/>
+    <Main $backgroundColor={colors[colorIndex]}>
+      <CardComponent quote={quoteArr[quoteIndex]} handleClick={onNewQuote} color={colors[colorIndex]}/>
     </Main>
   )
 }
