@@ -32,6 +32,11 @@ export const CardButton = styled.button<{ $backgroundColor?: string }>`
     color: #fdfdfd;
     padding: 5px 10px;
     border-radius: 4px;
+    cursor: pointer;
+
+    &:hover{
+        transform: scale(1.1);
+    }
 `
 
 export const Attribution = styled.p<{ $color?: string }>`
@@ -40,7 +45,7 @@ export const Attribution = styled.p<{ $color?: string }>`
     font-size: 20px;
 `
 
-export const Quote = styled.blockquote<{ $color?: string }>`
+export const QuoteComponent = styled.blockquote<{ $color?: string }>`
     color: ${props => props.$color || defaultColor};
     font-size: 30px;
     flex: 1;
