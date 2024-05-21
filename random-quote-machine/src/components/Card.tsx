@@ -1,15 +1,22 @@
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
 import { Card, CardButton, Attribution, QuoteComponent } from '../styledComponents'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Quote } from '../types'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 interface Props {
-  quote: Quote
   handleClick: () => void
   color: string
 }
 
-const CardComponent = ({ quote, handleClick, color }: Props) => {
+const CardComponent = ({ handleClick, color }: Props) => {
+  const quotes= useSelector((state: RootState) => state.quotes.quotes)
+  const currentIndex = useSelector((state: RootState) => state.quotes.currentIndex)
+
+  if (quotes.length === 0) return
+  const quote = quotes[currentIndex]
+
+
   return (
     <Card>
       <QuoteComponent $color={color}>
