@@ -13,7 +13,7 @@ function App() {
     dispatch(setQuotes(quotes))
   }, [dispatch])
 
-  const [colorIndex, setColorIndex] = useState<number>(1)
+  const [colorIndex, setColorIndex] = useState<number>(0)
   const colors = ['#8338EC', '#FB5607', '#3A86FF', '#FFBE0B', '#FF006E']
 
 
